@@ -1,141 +1,4 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>리굿슈 비공식 유저 한글패치</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/lgtskorean/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-    @font-face {
-    font-family: 'Hahmlet-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    }
-        html, body {
-        height: 100%;
-        overflow: auto;
-        }
-
-        body {
-            font-family: 'Hahmlet-Regular', sans-serif;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            position: relative; /* 배경 위에 오버레이를 위치시키기 위해 relative 설정 */
-        }
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-        h1 {
-            font-size: 5em;
-            text-align: center;
-            color: white;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #FFD700, 0 0 20px white, 0 0 30px #FF69B4, 0 0 40px #FF0000;
-            }
-            to {
-                text-shadow: 0 0 20px white, 0 0 30px #FFD700, 0 0 40px #FF69B4, 0 0 50px white, 0 0 60px #FF0000;
-            }
-        }
-        h2 {
-            font-size: 2em;
-            text-align: center;
-            color: white;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #FFD700, 0 0 20px white, 0 0 30px #FF69B4, 0 0 40px #FF0000;
-            }
-            to {
-                text-shadow: 0 0 20px white, 0 0 30px #FFD700, 0 0 40px #FF69B4, 0 0 50px white, 0 0 60px #FF0000;
-            }
-        }
-        .post {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease-out forwards;
-        }
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        footer {
-            position: fixed;
-            width: 100%;
-            height: 60px;
-            bottom: 0;
-            background: inherit;
-            color: white;
-            text-align: center;
-            padding: 0px;
-        }
-        .overlay {
-        position: absolute;
-        top: 0; /* 상단에 맞춤 */
-        left: 50%; /* 좌측에서부터 50% 위치에 배치 */
-        transform: translateX(-50%); /* 좌우 중앙에 위치하도록 조정 */
-        width: 80%; /* 폭을 80%로 설정 */
-        min-height: 100%; /* 높이를 화면의 높이와 동일하게 설정 */
-        background-color: rgba(255, 255, 255, 0.5); /* 흰색 반투명 배경 */
-        padding: 20px; /* 내부 여백 */
-        box-sizing: border-box; /* 패딩을 포함한 박스 크기로 계산 */
-        text-align: center; /* 텍스트 중앙 정렬 */
-        opacity: 0; /* 초기 상태: 투명 */
-        animation: fadeIn 0.75s ease-out forwards;
-        }
-        @keyframes fadeIn {
-        to {
-            opacity: 1; /* 애니메이션 종료 상태: 완전 불투명 */
-        }
-        }
-        .download-btn {
-        position: relative; /* 가상 요소의 기준점 설정 */
-        display: inline-block;
-        margin-top: 20px;
-        padding: 30px 100px;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        overflow: hidden;
-        background-image: linear-gradient(90deg, #9c5742, #963a5d, #32758d, #2a947b); /* 기본 배경 */
-        background-size: 400% 400%;
-        transition: background-image 0.3s ease; /* 그라데이션 변경에 대한 트랜지션 */
-        animation: gradient 15s ease infinite;
-        }
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
         .download-btn:hover {
             background-image: linear-gradient(90deg, #ac654f, #bb4271, #3088a8, #349e85); /* 기본 배경 */
             background-size: 400% 400%;
@@ -175,21 +38,20 @@
         <br>또한, 할루시네이션 문제가 있을 수 있습니다.
         <br>일부 기능상의 문제로 번역을 할 수 없는 부분이 존재합니다. (극히 일부입니다.)
         <br>폰트가 뭉개져서 나올 수 있습니다.
-        <br><br><div id="downloadBtn" class="download-btn" style="cursor: pointer;"><i class="fas fa-download"></i> 다운로드<br>Version: 1.1.2.K8A</div>
+        <br><br><div id="downloadBtn" class="download-btn" style="cursor: pointer;"><i class="fas fa-download"></i> 다운로드<br>Version: 1.1.2.K9A</div>
         <br><a style="color: #FF0000;"><b>해당 패치의 버전 K 앞부분이 게임의 버전과 일치하지 않으면 적용을 추천드리지 않습니다.</b></a>
-        <br><a style="color: #0000FF;"><b>2024년 05월 03일 기준 게임의 최신 버전: 1.1.2 (일치함)</b></a>
+        <br><a style="color: #0000FF;"><b>2024년 05월 04일 기준 게임의 최신 버전: 1.1.2 (일치함)</b></a>
         <br><br><h3><u>본인은 AstralShift와 SQUARE ENIX측에 번역에 사용한 모든 파일을 양도할 의사가 있습니다.</u></h3><h3><u>I am willing to transfer all the files used for translation to AstralShift and SQUARE ENIX.</u></h3>
         <br><br><br><br><br>
     </div>
     <br>
-
-</body>
-<footer>
-    <a href="https://churitoring.github.io/"><p>© 2024 ~ 츄리토링</p></a>
-</footer>
-<script>
+	<script>
     document.getElementById('downloadBtn').addEventListener('click', function() {
         window.open('https://drive.google.com/uc?export=download&id=1c3rLf7ouWVXcESLr90Ok_XOs0yrbHYh8', '_black');
     });
     </script>
+</body>
+<footer>
+    <a href="https://churitoring.github.io/"><p>© 2024 ~ 츄리토링</p></a>
+</footer>
 </html>
