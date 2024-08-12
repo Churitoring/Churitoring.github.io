@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>리굿슈 비공식 유저 한글패치</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/lgtskorean/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
     @font-face {
-    font-family: 'Hahmlet-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    }
-        html, body {
-        height: 100%;
-        overflow: auto;
+        font-family: 'Hahmlet-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
         }
-
+        html, body {
+            height: 100%;
+            overflow: auto;
+        }
         body {
             font-family: 'Hahmlet-Regular', sans-serif;
             margin: 0;
@@ -38,9 +36,22 @@
             width: 100%; /* 너비를 100%로 설정 */
             height: 100%; /* 높이도 100%로 설정 */
             object-fit: cover; /* 비율을 유지하며 중앙에서 잘리도록 설정 */
-            z-index: -1; /* 오버레이보다 뒤에 위치하도록 설정 */
+            z-index: -2; /* 오버레이보다 뒤에 위치하도록 설정 */
             transform: translate(-50%, -50%); /* 중앙 정렬 */
             opacity: 0.8;
+        }
+        #loadingImage {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 100%; /* 너비를 100%로 설정 */
+            height: 100%; /* 높이도 100%로 설정 */
+            object-fit: cover; /* 비율을 유지하며 중앙에서 잘리도록 설정 */
+            transform: translate(-50%, -50%); /* 중앙 정렬 */
+            background: url('rubyredshoesimage.jpg') center/cover no-repeat; /* 로딩 이미지 */
+            opacity: 0.8;
+            transition: opacity 0.2s ease-out;
+            z-index: -1; /* 비디오 위에 표시 */
         }
         @keyframes gradient {
             0% {
@@ -117,23 +128,23 @@
             animation: fadeIn 0.75s ease-out forwards;
         }
         @keyframes fadeIn {
-        to {
-            opacity: 1; /* 애니메이션 종료 상태: 완전 불투명 */
-        }
+            to {
+                opacity: 1; /* 애니메이션 종료 상태: 완전 불투명 */
+            }
         }
         .download-btn {
-        position: relative; /* 가상 요소의 기준점 설정 */
-        display: inline-block;
-        margin-top: 20px;
-        padding: 30px 100px;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        overflow: hidden;
-        background-image: linear-gradient(90deg, #ac654f, #bb4271, #3088a8, #349e85); /* 기본 배경 */
-        background-size: 400% 400%;
-        transition: background-image 0.3s ease; /* 그라데이션 변경에 대한 트랜지션 */
-        animation: gradient 15s ease infinite;
+            position: relative; /* 가상 요소의 기준점 설정 */
+            display: inline-block;
+            margin-top: 20px;
+            padding: 30px 100px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            overflow: hidden;
+            background-image: linear-gradient(90deg, #ac654f, #bb4271, #3088a8, #349e85); /* 기본 배경 */
+            background-size: 400% 400%;
+            transition: background-image 0.3s ease; /* 그라데이션 변경에 대한 트랜지션 */
+            animation: gradient 15s ease infinite;
         }
         @keyframes gradient {
             0% {
@@ -146,7 +157,6 @@
                 background-position: 0% 50%;
             }
         }
-
         .download-btn:hover {
             background-image: linear-gradient(90deg, #9c5742, #963a5d, #32758d, #2a947b); /* 기본 배경 */
             background-size: 400% 400%;
@@ -164,15 +174,13 @@
                 background-position: 0% 50%;
             }
         }
-
     </style>
 </head>
 <body>
-    <video class="background-video" autoplay loop muted>
-        <source src="rubyredshoes.webm" type="video/webm"> <!-- 동영상 파일 경로 -->
-        Your browser does not support the video tag.
+    <div id="loadingImage"></div>
+    <video id="background-video" class="background-video" autoplay loop muted>
+        <source src="rubyredshoes.webm" type="video/webm">
     </video>
-
     <div class="overlay">
         <h1>리틀 구디 투 슈즈</h1>
         <h2>비공식 한글 패치</h2>
@@ -193,7 +201,6 @@
         <br><br><br><br><br>
     </div>
     <br>
-
 </body>
 <footer>
     <a href="https://churitoring.github.io/"><p>츄리토링</p></a>
@@ -202,5 +209,16 @@
     document.getElementById('downloadBtn').addEventListener('click', function() {
         window.open('https://drive.google.com/uc?export=download&id=1c3rLf7ouWVXcESLr90Ok_XOs0yrbHYh8', '_black');
     });
+
+    const video = document.getElementById('background-video');
+    const loadingImage = document.getElementById('loadingImage');
+
+    video.onloadeddata = function() {
+        loadingImage.style.display = 'none'; // 완전히 숨김
+    };
+
+    // 비디오 로드 시작
+    video.load();
+    loadingImage.style.display = 'block'; // 로딩 이미지 보여주기
     </script>
 </html>
